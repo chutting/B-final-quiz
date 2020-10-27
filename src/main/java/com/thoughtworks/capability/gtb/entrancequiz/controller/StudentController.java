@@ -5,7 +5,9 @@ import com.thoughtworks.capability.gtb.entrancequiz.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -34,5 +36,12 @@ public class StudentController {
   @CrossOrigin
   public ResponseEntity<List<StudentEntity>> grouping() {
     return ResponseEntity.ok((studentService.grouping()));
+  }
+
+  @PostMapping("/student")
+  @CrossOrigin
+  public ResponseEntity saveStudent(@RequestBody StudentEntity student) {
+    studentService.saveStudent(student);
+    return ResponseEntity.created(null).build();
   }
 }

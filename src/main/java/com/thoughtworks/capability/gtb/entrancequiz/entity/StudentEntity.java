@@ -10,6 +10,10 @@ public class StudentEntity {
     this.name = name;
   }
 
+  public StudentEntity(String name) {
+    this.name = name;
+  }
+
   public int getId() {
     return id;
   }
