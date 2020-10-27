@@ -57,7 +57,7 @@ public class StudentService {
   public void saveStudent(StudentEntity newStudent) {
     List<StudentEntity> allStudents = findAllStudents();
     int lastId = allStudents.get(allStudents.size() - 1).getId();
-    newStudent.setId(lastId);
+    newStudent.setId(lastId + 1);
     studentRepository.save(newStudent);
   }
 }
