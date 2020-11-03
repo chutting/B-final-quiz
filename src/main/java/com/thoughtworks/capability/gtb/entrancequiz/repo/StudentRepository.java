@@ -16,6 +16,9 @@ public class StudentRepository{
       new StudentEntity(10, "庄周"), new StudentEntity(11, "马超"), new StudentEntity(12, "刘备"),
       new StudentEntity(13, "哪吒"), new StudentEntity(14, "大乔"), new StudentEntity(15, "蔡文姬")));
 
+  // TODO GTB-工程实践: - Magic Number
+  // TODO GTB-工程实践: - 代码不优雅
+  // TODO GTB-完成度: - 应该在点击分组的时候才生成组
   private List<String> allGroups = Arrays.asList("1", "2", "3", "4", "5", "6");
 
   private List<StudentEntity> getAllStudents() {
