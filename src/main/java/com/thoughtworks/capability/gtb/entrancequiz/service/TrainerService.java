@@ -43,7 +43,7 @@ public class TrainerService {
     return trainerRepository.save(newTrainer);
   }
 
-  public void deleteTrainee(Long trainer_id) {
+  public void deleteTrainer(Long trainer_id) {
     trainerRepository.findById(trainer_id).orElseThrow(() -> new NotFoundException("trainer_id not found"));
     groupRepository.deleteTrainerInGroup(trainer_id);
     trainerRepository.deleteById(trainer_id);
