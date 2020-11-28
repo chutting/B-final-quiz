@@ -93,8 +93,6 @@ public class GroupService {
 
     if (currentGroupOptional.isPresent()) {
       GroupEntity currentGroup = currentGroupOptional.get();
-//      currentGroup.getTrainers().clear();
-//      currentGroup.getTrainees().clear();
       currentGroup.getTrainees().addAll(trainees);
       currentGroup.getTrainers().addAll(trainers);
       return currentGroup;
@@ -102,11 +100,6 @@ public class GroupService {
       GroupEntity currentGroup = new GroupEntity(id + " 组", trainees, trainers);
       return currentGroup;
     }
-  }
-
-  public void saveGroups(List<GroupEntity> groupList) {
-    groupRepository.deleteAll();
-    groupList.forEach(group -> groupRepository.save(group));
   }
 
   private Optional<GroupEntity> getGroupById(long id) {
