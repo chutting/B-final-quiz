@@ -20,6 +20,6 @@ public class TrainerEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  @NotBlank
+  @NotBlank(message = "trainer's name could not be blank")
   private String name;
 }

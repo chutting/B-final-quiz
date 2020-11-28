@@ -17,7 +17,7 @@ public class TraineeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  @NotBlank
+  @NotBlank(message = "trainee's name could not be blank")
   private String name;
 //  @ManyToOne
 //  @JoinColumn(name = "group_id")

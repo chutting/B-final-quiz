@@ -21,7 +21,7 @@ public class TraineeController {
   }
 
   @GetMapping
-  public List<TraineeEntity> getTrainees(@RequestParam boolean grouped) {
+  public List<TraineeEntity> getUnGroupedTrainees(@RequestParam boolean grouped) {
     if (!grouped) {
       return traineeService.findAllUnGroupedTrainees();
     }
