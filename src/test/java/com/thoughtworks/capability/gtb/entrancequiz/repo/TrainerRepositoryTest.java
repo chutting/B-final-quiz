@@ -1,6 +1,5 @@
 package com.thoughtworks.capability.gtb.entrancequiz.repo;
 
-import com.thoughtworks.capability.gtb.entrancequiz.entity.TraineeEntity;
 import com.thoughtworks.capability.gtb.entrancequiz.entity.TrainerEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,59 +17,59 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @DataJpaTest
-class TraineeRepositoryTest {
+class TrainerRepositoryTest {
   @Autowired
-  private TraineeRepository traineeRepository;
+  private TrainerRepository trainerRepository;
 
   @Autowired
   private TestEntityManager entityManager;
 
-  private TraineeEntity initTrainee;
-  private List<TraineeEntity> traineeList = new ArrayList<>();
+  private TrainerEntity initTrainer;
+  private List<TrainerEntity> trainerList = new ArrayList<>();
 
   @BeforeEach
   public void init() {
-    initTrainee = TraineeEntity.builder()
+    initTrainer = TrainerEntity.builder()
         .name("ctt")
         .build();
 
-    traineeList.add(initTrainee);
-    entityManager.persistAndFlush(initTrainee);
+    trainerList.add(initTrainer);
+    entityManager.persistAndFlush(initTrainer);
   }
 
   @Test
   @DirtiesContext
   void shouldFindAll() {
-    List<TraineeEntity> allTrainees = traineeRepository.findAll();
-    assertEquals(allTrainees, traineeList);
+    List<TrainerEntity> allTrainers = trainerRepository.findAll();
+    assertEquals(allTrainers, trainerList);
   }
 
   @Test
   @DirtiesContext
-  void shouldSaveTrainee() {
-    TraineeEntity newTrainee = TraineeEntity.builder()
+  void shouldSaveTrainer() {
+    TrainerEntity newTrainer = TrainerEntity.builder()
         .name("chuttin")
         .build();
-    traineeRepository.save(newTrainee);
-    assertEquals(traineeRepository.findAll().size(), 2);
+    trainerRepository.save(newTrainer);
+    assertEquals(trainerRepository.findAll().size(), 2);
   }
 
   @Test
   @DirtiesContext
   void shouldFindById() {
-    Optional<TraineeEntity> trainee = traineeRepository.findById(1L);
-    assertTrue(trainee.isPresent());
-    assertEquals(trainee.get().getName(), "ctt");
+    Optional<TrainerEntity> trainer = trainerRepository.findById(1L);
+    assertTrue(trainer.isPresent());
+    assertEquals(trainer.get().getName(), "ctt");
   }
 
   @Test
   @DirtiesContext
   void shouldDeleteById() {
-    Optional<TraineeEntity> traineeBefore = traineeRepository.findById(1L);
-    assertTrue(traineeBefore.isPresent());
-    traineeRepository.deleteById(1L);
-    Optional<TraineeEntity> traineeAfter = traineeRepository.findById(1L);
-    assertFalse(traineeAfter.isPresent());
+    Optional<TrainerEntity> trainerBefore = trainerRepository.findById(1L);
+    assertTrue(trainerBefore.isPresent());
+    trainerRepository.deleteById(1L);
+    Optional<TrainerEntity> trainerAfter = trainerRepository.findById(1L);
+    assertFalse(trainerAfter.isPresent());
   }
 
 }
