@@ -25,18 +25,18 @@ class GroupRepositoryTest {
   @Autowired
   private TestEntityManager entityManager;
 
-  private TraineeEntity initFirstTrainee;
+  private TraineeEntity initTrainee;
   private List<TraineeEntity> traineeList = new ArrayList<>();
   private GroupEntity initGroup;
   private List<GroupEntity> groupList = new ArrayList<>();
 
   @BeforeEach
   void setUp() {
-    initFirstTrainee = TraineeEntity.builder()
+    initTrainee = TraineeEntity.builder()
         .name("ctt")
         .build();
 
-    traineeList.add(initFirstTrainee);
+    traineeList.add(initTrainee);
 
     initGroup = GroupEntity.builder()
         .name("1 组")
@@ -44,7 +44,7 @@ class GroupRepositoryTest {
         .build();
 
     groupList.add(initGroup);
-    entityManager.persistAndFlush(initFirstTrainee);
+    entityManager.persistAndFlush(initTrainee);
     entityManager.persistAndFlush(initGroup);
   }
 
