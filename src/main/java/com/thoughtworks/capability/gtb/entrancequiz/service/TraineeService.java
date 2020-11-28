@@ -41,6 +41,7 @@ public class TraineeService {
   }
 
   public void deleteTrainee(Long trainee_id) {
+    groupRepository.deleteTraineeInGroup(trainee_id);
     traineeRepository.deleteById(trainee_id);
   }
 }

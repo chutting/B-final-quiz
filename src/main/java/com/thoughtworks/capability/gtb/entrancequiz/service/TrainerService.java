@@ -43,6 +43,7 @@ public class TrainerService {
   }
 
   public void deleteTrainee(Long trainer_id) {
+    groupRepository.deleteTrainerInGroup(trainer_id);
     trainerRepository.deleteById(trainer_id);
   }
 }

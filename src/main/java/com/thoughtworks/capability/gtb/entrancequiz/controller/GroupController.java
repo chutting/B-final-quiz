@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.controller;
 
 import com.thoughtworks.capability.gtb.entrancequiz.entity.GroupEntity;
 import com.thoughtworks.capability.gtb.entrancequiz.service.GroupService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class GroupController {
   }
 
   @PostMapping("/auto-grouping")
+  @ResponseStatus(HttpStatus.CREATED)
   public List<GroupEntity> grouping() {
     return groupService.grouping();
   }

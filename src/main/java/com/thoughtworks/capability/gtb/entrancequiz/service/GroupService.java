@@ -83,7 +83,7 @@ public class GroupService {
     int oldGroupSize = findAllGroups().size();
     if (currentGroupSize < oldGroupSize) {
       for (long i = currentGroupSize; i < oldGroupSize; i++) {
-        groupRepository.deleteById(i);
+        groupRepository.deleteById(i + 1);
       }
     }
   }
