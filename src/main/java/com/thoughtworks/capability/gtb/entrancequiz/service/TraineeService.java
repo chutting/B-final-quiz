@@ -2,6 +2,7 @@ package com.thoughtworks.capability.gtb.entrancequiz.service;
 
 import com.thoughtworks.capability.gtb.entrancequiz.entity.GroupEntity;
 import com.thoughtworks.capability.gtb.entrancequiz.entity.TraineeEntity;
+import com.thoughtworks.capability.gtb.entrancequiz.exception.NotFoundException;
 import com.thoughtworks.capability.gtb.entrancequiz.repo.GroupRepository;
 import com.thoughtworks.capability.gtb.entrancequiz.repo.TraineeRepository;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,7 @@ public class TraineeService {
   }
 
   public void deleteTrainee(Long trainee_id) {
+    if (!traineeRepository.findById(trainee_id).isPresent()) throw new NotFoundException("trainee_id not found");
     groupRepository.deleteTraineeInGroup(trainee_id);
     traineeRepository.deleteById(trainee_id);
   }
