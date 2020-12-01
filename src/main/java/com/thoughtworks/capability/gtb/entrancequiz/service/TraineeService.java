@@ -31,6 +31,7 @@ public class TraineeService {
 
   public List<TraineeEntity> findAllUnGroupedTrainees() {
     LinkedList<TraineeEntity> allGroupedTrainees = new LinkedList<>();
+    // TODO GTB-工程实践: - 建议用SQL来进行筛选，内存筛选不但逻辑写复杂了，而且在Trainee很多的情况下也有问题
     List<GroupEntity> allGroups = groupRepository.findAll();
     allGroups.forEach(group -> {
       allGroupedTrainees.addAll(group.getTrainees());
@@ -42,6 +43,7 @@ public class TraineeService {
   }
 
   public void deleteTrainee(Long trainee_id) {
+    // TODO GTB-工程实践: if 即使只有一条语句也建议加{}
     if (!traineeRepository.findById(trainee_id).isPresent()) throw new NotFoundException("trainee_id not found");
     groupRepository.deleteTraineeInGroup(trainee_id);
     traineeRepository.deleteById(trainee_id);

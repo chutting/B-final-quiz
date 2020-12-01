@@ -19,6 +19,7 @@ public class TraineeEntity {
   private Long id;
   @NotBlank(message = "trainee's name could not be blank")
   private String name;
+  // TODO GTB-工程实践: - Comment, 一段代码如果不需要，应该删除而非将其注释
 //  @ManyToOne
 //  @JoinColumn(name = "group_id")
 //  private GroupEntity group;

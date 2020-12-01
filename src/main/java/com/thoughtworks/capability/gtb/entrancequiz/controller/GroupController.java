@@ -23,7 +23,7 @@ public class GroupController {
   }
 
   @PostMapping("/auto-grouping")
-  @ResponseStatus(HttpStatus.CREATED)
+//  @ResponseStatus(HttpStatus.CREATED)
   public List<GroupEntity> grouping() {
     return groupService.grouping();
   }

@@ -26,6 +26,7 @@ public class TrainerService {
   public List<TrainerEntity> findAllUnGroupedTrainers() {
     LinkedList<TrainerEntity> allGroupedTrainers = new LinkedList<>();
     List<GroupEntity> allGroups = groupRepository.findAll();
+    // TODO GTB-知识点: - 以下lambda表达式可以简化
     allGroups.forEach(group -> {
       allGroupedTrainers.addAll(group.getTrainers());
     });

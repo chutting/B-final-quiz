@@ -35,6 +35,7 @@ public class GroupService {
 
   public List<GroupEntity> grouping() {
     List<TrainerEntity> allTrainers = trainerRepository.findAll();
+    // TODO GTB-工程实践: - Code Smell, Magic Number
     if (allTrainers.size() < 2) {
       throw new TrainerNotEnoughException("trainer's size less than 2");
     }

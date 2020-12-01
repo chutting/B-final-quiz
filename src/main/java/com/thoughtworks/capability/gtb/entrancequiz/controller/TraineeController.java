@@ -5,7 +5,7 @@ import com.thoughtworks.capability.gtb.entrancequiz.exception.NotFoundException;
 import com.thoughtworks.capability.gtb.entrancequiz.service.TraineeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-// TODO GTB-工程实践: - 未使用的import语句
+// TODO GTB-工程实践: - import语句不要使用通配符
 
 import javax.validation.Valid;
 import java.util.List;
@@ -30,6 +30,7 @@ public class TraineeController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
+  // TODO GTB-知识点: - @Valid建议放在参数前
   @Valid
   public TraineeEntity saveTrainees(@RequestBody TraineeEntity trainee) {
     return traineeService.saveTrainee(trainee);
@@ -37,6 +38,7 @@ public class TraineeController {
 
   @DeleteMapping("/{trainee_id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
+  // TODO GTB-工程实践: - Naming, 变量名不符合规范, 应该使用小驼峰
   public void deleteTrainees(@PathVariable Long trainee_id) {
     traineeService.deleteTrainee(trainee_id);
   }
